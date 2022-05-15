@@ -1,12 +1,16 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HelloWorld from '../components/HelloWorld.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Layout from '../layout/Index.vue'
+import Home from '../views/home/Index.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      component: HelloWorld
+      component: Layout,
+      children: [
+        { path: '', component: Home }
+      ]
     }
   ]
 })

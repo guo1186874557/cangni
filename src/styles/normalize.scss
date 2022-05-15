@@ -1,0 +1,19 @@
+@import url('//at.alicdn.com/t/font_3388315_n7ytuvhycc.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'yapi';
+    src: url('../assets/雅痞-简\ 常规体.otf');
+}
+body {
+    font-size: 16px;
+    font-family:'yapi';
+}
+a {
+    text-decoration: none;
+    color: #000;
+}

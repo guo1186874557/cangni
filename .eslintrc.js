@@ -24,6 +24,10 @@ module.exports = {
       multiline: {
         max: 3
       }
-    }]
+    }],
+    'vue/multi-word-component-names': 0
+  },
+  globals: {
+    NodeJS: true
   }
 }

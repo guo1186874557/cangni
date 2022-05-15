@@ -14,10 +14,11 @@
     "pinia": "^2.0.13",
     "sass": "^1.51.0",
     "vue": "^3.2.33",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "vue3-danmaku": "^0.2.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.27",
+    "@types/node": "^16.11.35",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "@vitejs/plugin-vue": "^2.3.1",
