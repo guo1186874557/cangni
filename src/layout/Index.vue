@@ -39,6 +39,7 @@ const boofang = () => {
 
 <style lang="scss" scoped>
 .container {
+  min-width: 1250px;
   position: relative;
   background-color: #000000;
   .bofang {
