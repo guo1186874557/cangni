@@ -1,0 +1,16 @@
+{
+  "name": "hlui",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.29",
+    "element-plus": "^2.8.3"
+  }
+}
