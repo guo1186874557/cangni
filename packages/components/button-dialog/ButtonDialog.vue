@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { GetEmits } from "@hlui/utils";
 import { type ButtonProps, type DialogEmits, type DialogProps, ElButton, ElDialog } from "element-plus";
 import { createApp, h, onMounted, ref, useAttrs } from "vue";
 
@@ -17,7 +18,6 @@ const props = withDefaults(defineProps<DialogPropsType>(), {
 });
 
 /* ---------------------------------- emits --------------------------------- */
-type GetEmits<T> = { [K in keyof T]: T[K] extends (...args: infer A) => any ? A : never };
 const emit = defineEmits</* @vue-ignore */ GetEmits<DialogEmits>>();
 const attr: Partial<Record<keyof DialogEmits, any>> = useAttrs();
 
@@ -25,7 +25,7 @@ const slots = defineSlots<{
   trigger(props: { open: () => void }): any;
   default(): any;
   header(props: { close: () => void }): any;
-  footer(): any;
+  footer(props: { close: () => void }): any;
 }>();
 
 /* ---------------------------------- 打开弹窗 ---------------------------------- */
@@ -38,8 +38,6 @@ function close() {
 function openDialog() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { open, closed, ...otherAttrs } = attr;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { trigger, header, ...dialogSlots } = slots;
   const div = document.createElement("div");
   const app = createApp({
     setup() {
@@ -62,8 +60,9 @@ function openDialog() {
             },
           },
           {
-            ...dialogSlots,
-            header: () => slots.header({ close }),
+            default: () => slots.default?.(),
+            header: () => slots.header?.({ close }),
+            footer: () => slots.footer?.({ close }),
           },
         );
     },
@@ -75,8 +74,8 @@ function openDialog() {
 
 <template>
   <slot name="trigger" :open="openDialog">
-    <el-button :type="type" :size="size" :circle="circle" :round="round" @click="openDialog">{{
-      triggerText
-    }}</el-button>
+    <el-button :type="type" :size="size" :circle="circle" :round="round" @click="openDialog">
+      {{ triggerText }}
+    </el-button>
   </slot>
 </template>
