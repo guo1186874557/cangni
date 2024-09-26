@@ -1,6 +1,6 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
-  "include": ["**/vite.config.*", "pack/**/*", "@types/undertaker"],
+  "include": ["**/vite.config.*", "pack/**/*", "@types/undertaker", "scripts/**/*"],
   "compilerOptions": {
     "composite": true,
     "noEmit": true,
@@ -8,6 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "allowJs": true,
     "types": ["node"]
   }
 }

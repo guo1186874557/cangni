@@ -7,7 +7,11 @@ defineOptions({ inheritAttrs: false, name: "HlButtonDialog" });
 
 /* ---------------------------------- props --------------------------------- */
 type DialogPropsType = Partial<
-  Omit<DialogProps, "modelValue"> & Pick<ButtonProps, "type" | "size" | "circle" | "round"> & { triggerText: string }
+  Omit<DialogProps, "modelValue"> &
+    Pick<ButtonProps, "type" | "size" | "circle" | "round"> & {
+      triggerText: string;
+      showTrigger: boolean;
+    }
 >;
 const props = withDefaults(defineProps<DialogPropsType>(), {
   showClose: true,
@@ -15,6 +19,7 @@ const props = withDefaults(defineProps<DialogPropsType>(), {
   modal: true,
   triggerText: "打开弹窗",
   type: "primary",
+  showTrigger: true,
 });
 
 /* ---------------------------------- emits --------------------------------- */
@@ -35,7 +40,7 @@ function close() {
   dialogRef.value!.visible = false;
 }
 
-function openDialog() {
+function open() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { open, closed, ...otherAttrs } = attr;
   const div = document.createElement("div");
@@ -70,11 +75,16 @@ function openDialog() {
   app.mount(div);
   document.body.appendChild(div);
 }
+
+defineExpose({
+  open,
+  close,
+});
 </script>
 
 <template>
-  <slot name="trigger" :open="openDialog">
-    <el-button :type="type" :size="size" :circle="circle" :round="round" @click="openDialog">
+  <slot name="trigger" :open="open" v-if="showTrigger">
+    <el-button :type="type" :size="size" :circle="circle" :round="round" @click="open">
       {{ triggerText }}
     </el-button>
   </slot>

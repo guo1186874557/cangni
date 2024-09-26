@@ -3,9 +3,7 @@ import Play from "./Play.vue";
 </script>
 
 <template>
-  <Play></Play>
-  <Play></Play>
-  <Play></Play>
+  <Play v-for="item in 1000" :key="item"></Play>
 </template>
 
 <style scoped></style>

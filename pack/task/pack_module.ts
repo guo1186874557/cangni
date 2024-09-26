@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 import { nodeResolve } from "@rollup/plugin-node-resolve";
@@ -10,7 +10,7 @@ import esbuild from "rollup-plugin-esbuild";
 
 import { PKG_NAME, WORKSPACE_NAME } from "../constant/pkg";
 import { generateExternal } from "../pack-utils/generateExternal";
-import { outputPath, packagesPath } from "../pack-utils/path";
+import { outputPath, packagesPath, rootPath } from "../pack-utils/path";
 
 export default function packModule(pkgName?: string) {
   return async () => {
