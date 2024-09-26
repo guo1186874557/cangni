@@ -1,8 +1,14 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": ["packages/**/*", "packages/**/*.vue", "types/global.d.ts"],
   "compilerOptions": {
     "composite": true,
-    "noEmit": false
+    "incremental": true,
+    "noEmit": false,
+    "baseUrl": ".",
+    "paths": {
+      "@hlui/*": ["packages/*"],
+      "hlui/*": ["packages/hlui/*"]
+    }
   }
 }

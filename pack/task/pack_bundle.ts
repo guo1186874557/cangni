@@ -10,35 +10,26 @@ import { PKG_NAME } from "../constant/pkg";
 import { generateExternal } from "../pack-utils/generateExternal";
 import { outputPath, packagesPath } from "../pack-utils/path";
 
-async function pack(minify: boolean = false) {
-  const plugins: InputOptions["plugins"] = [nodeResolve(), vue(), vueJsx()];
-  plugins.push(
-    esbuild({
-      minify: minify,
-      define: {
-        __DEV__: minify ? "false" : "true",
-      },
-    }),
-  );
-
+/**
+ * @param mode "prod" | "dev"
+ */
+export default async function packBundle() {
+  const plugins: InputOptions["plugins"] = [nodeResolve(), vue(), vueJsx(), esbuild()];
   const inputOption: InputOptions = {
     input: path.join(packagesPath, PKG_NAME, "index.ts"),
     external: generateExternal({ full: true }),
     plugins: plugins,
     treeshake: true,
   };
-
   const bundle = await rollup(inputOption);
-
   await bundle.write({
-    file: path.join(outputPath, "dist", `index${minify ? ".prod" : ""}.mjs`),
+    file: path.join(outputPath, "dist", "index.mjs"),
     format: "esm",
     sourcemap: true,
     exports: "named",
   });
-
   await bundle.write({
-    file: path.join(outputPath, "dist", `index.umd${minify ? ".prod" : ""}.js`),
+    file: path.join(outputPath, "dist", "index.umd.js"),
     format: "umd",
     sourcemap: true,
     exports: "named",
@@ -49,9 +40,3 @@ async function pack(minify: boolean = false) {
     },
   });
 }
-
-const packBundle = async () => {
-  return Promise.all([pack(false), pack(true)]);
-};
-
-export default packBundle;
