@@ -4,15 +4,25 @@
   "type": "module",
   "scripts": {
     "build": "pnpm --filter pack build",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "prepare": "husky",
+    "lint-staged": "lint-staged",
+    "commit": "git-cz"
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint --fix",
+    "*.{json,md,css,scss,sass}": "prettier --write"
   },
   "peerDependencies": {
-    "vue": "^3.4.29",
     "@hlui/components": "workspace:*",
     "@hlui/utils": "workspace:*",
-    "hlui": "workspace:*"
+    "hlui": "workspace:*",
+    "pack": "workspace:*",
+    "vue": "^3.4.29"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/lodash-es": "^4.17.12",
@@ -22,11 +32,17 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/tsconfig": "^0.5.1",
+    "commander": "^12.1.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "element-plus": "^2.8.3",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-vue": "^9.23.0",
+    "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "lodash-es": "^4.17.21",
     "npm-run-all2": "^6.2.0",
     "sass": "^1.79.3",

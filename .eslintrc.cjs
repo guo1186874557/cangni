@@ -1,8 +1,12 @@
 /* eslint-env node */
 require("@rushstack/eslint-patch/modern-module-resolution");
+const globals = require("globals");
 
 module.exports = {
   root: true,
+  globals: {
+    ...globals.node,
+  },
   plugins: ["simple-import-sort", "import"],
   extends: [
     "plugin:vue/vue3-essential",

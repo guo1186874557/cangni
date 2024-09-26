@@ -1,11 +1,37 @@
-import fs from "node:fs";
+import fs, { copyFileSync } from "node:fs";
 import path from "node:path";
 
-import { glob } from "fast-glob";
+import { glob, globSync } from "fast-glob";
 
 import { PKG_NAME, WORKSPACE_NAME } from "../constant/pkg";
-import { outputPath, rootPath } from "../pack-utils/path";
+import { outputPath, packagesPath, rootPath } from "../pack-utils/path";
 import run from "../pack-utils/run";
+
+export function generateGlobalDts() {
+  const componentNames = globSync("./*", {
+    cwd: path.join(packagesPath, "components"),
+    onlyDirectories: true,
+    dot: true,
+  });
+  const _componentNames = componentNames.map(
+    (name) =>
+      "Hl" +
+      name
+        .split("-")
+        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .join(""),
+  );
+  const content = ` declare module "vue" {
+                      interface GlobalComponents {
+                        ${_componentNames.map((name) => `${name}: (typeof import("hlui"))["${name}"]`).join("\n")}
+                      }
+                    }
+                    export {};`;
+
+  fs.writeFileSync(path.join(rootPath, "types/global.d.ts"), content);
+  run("npx eslint --fix types/global.d.ts");
+  copyFileSync(path.join(rootPath, "types", "global.d.ts"), path.join(outputPath, "global.d.ts"));
+}
 
 export default function generateDeclare(pkgName?: string) {
   return async () => {
@@ -37,5 +63,8 @@ export default function generateDeclare(pkgName?: string) {
     tsbuildinfoFiles.forEach((file) => {
       fs.rmSync(file);
     });
+
+    // 生成global.d.ts
+    generateGlobalDts();
   };
 }

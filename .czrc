@@ -1,0 +1,54 @@
+{
+  "path": "cz-conventional-changelog",
+  "disableScopeLowerCase": false,
+  "disableSubjectLowerCase": false,
+  "maxHeaderWidth": 100,
+  "maxLineWidth": 100,
+  "defaultType": "",
+  "defaultScope": "",
+  "defaultSubject": "",
+  "defaultBody": "",
+  "defaultIssues": "",
+  "types": {
+    "feat": {
+      "description": "一个新功能",
+      "title": "Features"
+    },
+    "fix": {
+      "description": "一个修复",
+      "title": "Bug Fixes"
+    },
+    "docs": {
+      "description": "文档更新",
+      "title": "Documentation"
+    },
+    "style": {
+      "description": "代码格式更新",
+      "title": "Styles"
+    },
+    "refactor": {
+      "description": "代码重构",
+      "title": "Code Refactoring"
+    },
+    "perf": {
+      "description": "性能优化",
+      "title": "Performance Improvements"
+    },
+    "test": {
+      "description": "增加测试用例",
+      "title": "Tests"
+    },
+    "build": {
+      "description": "构建系统或外部依赖项变动",
+      "title": "Builds"
+    },
+    "ci": {
+      "description": "CI 配置文件或脚本变动",
+      "title": "Continuous Integration"
+    },
+    "chore": {
+      "description": "其他不修改 src 或 test 的变动",
+      "title": "Chores"
+    }
+  }
+}

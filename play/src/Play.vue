@@ -36,13 +36,13 @@ async function onClick(colse: () => void) {
 
   colse();
 }
+const hbtRef = ref<InstanceType<typeof HlButtonDialog>>();
 </script>
 
 <template>
-  <HlButtonDialog title="人员姓名">
-    <template #trigger="{ open }">
-      <ElLink style="margin-right: 10px" @click="open" type="primary">点击打开</ElLink>
-    </template>
+  <ElLink style="margin-right: 10px" type="primary" @click="hbtRef?.open()">点击打开1</ElLink>
+
+  <HlButtonDialog title="人员姓名" ref="hbtRef" :show-trigger="false">
     <ElForm :model="formData" ref="formRef">
       <ElFormItem label="姓名" prop="name" required>
         <ElInput placeholder="请输入姓名" v-model="formData.name" />
