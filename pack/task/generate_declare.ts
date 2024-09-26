@@ -7,7 +7,7 @@ import { PKG_NAME, WORKSPACE_NAME } from "../constant/pkg";
 import { outputPath, rootPath } from "../pack-utils/path";
 import run from "../pack-utils/run";
 
-export default function generateDeclare(pkgName: string) {
+export default function generateDeclare(pkgName?: string) {
   return async () => {
     run(`npx vue-tsc -p tsconfig.pkg.json --declaration --emitDeclarationOnly --declarationDir hlui/types`);
 

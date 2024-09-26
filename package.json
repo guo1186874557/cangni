@@ -8,7 +8,6 @@
   },
   "peerDependencies": {
     "vue": "^3.4.29",
-    "hlui-play": "workspace:*",
     "@hlui/components": "workspace:*",
     "@hlui/utils": "workspace:*",
     "hlui": "workspace:*"
