@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { GetEmits } from "@hlui/utils";
+import type { GetEmits } from "@cangni/utils";
 import { type ButtonProps, type DialogEmits, type DialogProps, ElButton, ElDialog } from "element-plus";
 import { createApp, h, onMounted, ref, useAttrs } from "vue";
 
-defineOptions({ inheritAttrs: false, name: "HlButtonDialog" });
+defineOptions({ inheritAttrs: false, name: "CnButtonDialog" });
 
 /* ---------------------------------- props --------------------------------- */
 type DialogPropsType = Partial<
-  Omit<DialogProps, "modelValue"> &
+  Omit<DialogProps, "modelValue" | "destroyOnClose"> &
     Pick<ButtonProps, "type" | "size" | "circle" | "round"> & {
       triggerText: string;
       showTrigger: boolean;
@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<DialogPropsType>(), {
   showClose: true,
   closeOnClickModal: false,
   modal: true,
-  triggerText: "打开弹窗",
+  triggerText: "",
   type: "primary",
   showTrigger: true,
 });

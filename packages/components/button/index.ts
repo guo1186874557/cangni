@@ -1,5 +1,5 @@
-import { withInstall } from "@hlui/utils";
+import { withInstall } from "@cangni/utils";
 
 import Button from "./Button.vue";
 
-export const HlButton = withInstall(Button);
+export const CnButton = withInstall(Button);
