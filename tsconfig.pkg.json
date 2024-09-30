@@ -1,14 +1,14 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["packages/**/*", "packages/**/*.vue", "types/global.d.ts"],
+  "include": ["packages/**/*", "packages/**/*.vue", "play/env.d.ts"],
   "compilerOptions": {
     "composite": true,
     "incremental": true,
+    "tsBuildInfoFile": "./dist/tsconfig.pkg.tsbuildinfo",
     "noEmit": false,
     "baseUrl": ".",
     "paths": {
-      "@hlui/*": ["packages/*"],
-      "hlui/*": ["packages/hlui/*"]
+      "@cangni/*": ["packages/*"]
     }
   }
 }

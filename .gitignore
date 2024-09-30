@@ -28,4 +28,7 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-/hlui
+pnpm-lock.yaml
+
+docs/.vitepress/cache
+docs/.vitepress/dist

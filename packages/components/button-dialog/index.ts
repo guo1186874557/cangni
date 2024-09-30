@@ -1,5 +1,5 @@
-import { withInstall } from "@hlui/utils";
+import { withInstall } from "@cangni/utils";
 
 import ButtonDialog from "./ButtonDialog.vue";
 
-export const HlButtonDialog = withInstall(ButtonDialog);
+export const CnButtonDialog = withInstall(ButtonDialog);

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { GetEmits, WithEmitsOn } from "@hlui/utils";
+import type { GetEmits, WithEmitsOn } from "@cangni/utils";
 import { type ButtonProps, ElButton, ElForm, ElMessage } from "element-plus";
 import { ref, useAttrs } from "vue";
 
-defineOptions({ name: "HlButton", inheritAttrs: false });
+defineOptions({ name: "CnButton", inheritAttrs: false });
 type ButtonPropType = Partial<Omit<ButtonProps, "loading">> & {
   showMessage?: boolean;
   successMessage?: string;

@@ -1,5 +1,6 @@
 import path from "node:path";
 
+import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
@@ -14,7 +15,7 @@ import { outputPath, packagesPath } from "../pack-utils/path";
  * @param mode "prod" | "dev"
  */
 export default async function packBundle() {
-  const plugins: InputOptions["plugins"] = [nodeResolve(), vue(), vueJsx(), esbuild()];
+  const plugins: InputOptions["plugins"] = [nodeResolve(), vue(), vueJsx(), esbuild(), commonjs()];
   const inputOption: InputOptions = {
     input: path.join(packagesPath, PKG_NAME, "index.ts"),
     external: generateExternal({ full: true }),

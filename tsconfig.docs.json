@@ -1,0 +1,8 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["docs/**/*", "docs/**/*.vue", "docs/.vitepress/**/*", "play/env.d.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false
+  }
+}

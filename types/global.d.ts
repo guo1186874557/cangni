@@ -1,7 +1,8 @@
 declare module "vue" {
   interface GlobalComponents {
-    HlButton: (typeof import("hlui"))["HlButton"];
-    HlButtonDialog: (typeof import("hlui"))["HlButtonDialog"];
+    CnButton: (typeof import("cangni"))["CnButton"];
+    CnButtonDialog: (typeof import("cangni"))["CnButtonDialog"];
+    CnDateRange: (typeof import("cangni"))["CnDateRange"];
   }
 }
 export {};

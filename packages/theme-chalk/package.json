@@ -1,9 +1,9 @@
 {
-  "name": "@cangni/components",
+  "name": "@cangni/theme-chalk",
   "version": "0.0.0",
   "description": "",
-  "main": "index.ts",
   "keywords": [],
+  "main": "index.css",
   "author": "",
   "license": "ISC"
 }
