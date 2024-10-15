@@ -14,19 +14,18 @@ export default defineConfigWithTheme({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "主页", link: "/" },
-      { text: "组件", link: "/component" },
     ],
 
     sidebar: {
       "/component/": [
         {
-          text: "组件总览",
-          items: [{ text: "组件总览", link: "/component/" }],
-        },
-        {
           text: "基础组件",
           collapsed: false,
-          items: [{ text: "ButtonDialog 按钮弹窗", link: "/component/button-dialog" }],
+          items: [
+            { text: "Button 按钮", link: "/component/button" },
+            { text: "ButtonDialog 按钮弹窗", link: "/component/button-dialog" },
+            { text: "DateRange 按钮弹窗", link: "/component/date-range" },
+          ],
         },
       ],
     },
