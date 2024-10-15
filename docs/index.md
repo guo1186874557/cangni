@@ -8,14 +8,18 @@ hero:
   tagline: "满足业务场景的组件"
   actions:
     - theme: brand
-      text: "开始使用"
-      link: /markdown-examples
+      text: "组件"
+      link: /component/button
+    - theme: brand
+      text: "hook"
+      link: /hook/
+# features:
 
-features:
-  - icon: ⚡️
-    title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - icon: 🖖
-    title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+# features:
+#   - icon: ⚡️
+#     title: Feature A
+#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#   - icon: 🖖
+#     title: Feature B
+#     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
