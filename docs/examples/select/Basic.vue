@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import "@cangni/components/select/style";
-
-import { CnSelect } from "@cangni/components";
+import { ElDivider } from "element-plus";
 import { ref } from "vue";
 
 async function getOptions(): Promise<any[]> {
@@ -15,11 +13,20 @@ async function getOptions(): Promise<any[]> {
     }, 3000);
   });
 }
+
 const modelValue = ref("");
+
+const options = [
+  { label: "选项5", value: "5" },
+  { label: "选项6", value: "6" },
+  { label: "选项7", value: "7" },
+];
 </script>
 
 <template>
-  <CnSelect v-model="modelValue" :server="getOptions"></CnSelect>
+  <cn-select v-model="modelValue" :server="getOptions"></cn-select>
+  <el-divider />
+  <cn-select v-model="modelValue" :options="options"></cn-select>
 </template>
 
 <style scoped></style>

@@ -24,7 +24,8 @@ export default defineConfigWithTheme({
           items: [
             { text: "Button 按钮", link: "/component/button" },
             { text: "ButtonDialog 按钮弹窗", link: "/component/button-dialog" },
-            { text: "DateRange 按钮弹窗", link: "/component/date-range" },
+            { text: "DateRange 日期范围", link: "/component/date-range" },
+            { text: "select 选择器", link: "/component/select" },
           ],
         },
       ],

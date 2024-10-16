@@ -1,4 +1,4 @@
-# ButtonDialog 按钮弹窗
+# Button 按钮
 
 ## 基础用法
 
