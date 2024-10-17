@@ -1,5 +1,9 @@
 # ButtonDialog 按钮弹窗
 
+::: tip
+该组件的弹窗只会在单击按钮时渲染，element-plus 的弹窗组件会在页面加载时渲染，即使使用属性 `destroyOnClose` 也会有多余的div出现。该组件就是解决这个问题，也就意味着可以在 `el-table-column`，`v-for`中使用。
+:::
+
 ## 基础用法
 
 :::demo src=examples/button-dialog/Basic.vue
