@@ -5,6 +5,7 @@
   "scripts": {
     "build": "pnpm --filter pack build",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "lerna:version": "lerna version --conventional-commits",
     "prepare": "husky",
     "lint-staged": "lint-staged",
     "commit": "git add . && git-cz"
@@ -25,6 +26,7 @@
     "@cangni/components": "workspace:*",
     "@cangni/theme-chalk": "workspace:*",
     "@cangni/utils": "workspace:*",
+    "cangni": "workspace:*",
     "@tsconfig/node20": "^20.1.4",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.14.5",

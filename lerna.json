@@ -1,54 +1,5 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "0.0.0",
-  "npmClient": "pnpm",
-  "command": {
-    "version": {
-      "conventionalCommits": true,
-      "private": false,
-      "changelogPreset": {
-        "name": "conventionalcommits",
-        "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
-        "userUrlFormat": "{{host}}/{{user}}",
-        "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
-        "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
-        "header": "# Changelog | 变更日志\n\n",
-        "issuePrefixes": ["#"],
-        "types": [
-          {
-            "type": "feat",
-            "section": "✨ Features | 新功能"
-          },
-          {
-            "type": "fix",
-            "section": "🐛 Bug Fixes | 错误修复"
-          },
-          {
-            "type": "chore",
-            "hidden": true
-          },
-          {
-            "type": "docs",
-            "hidden": true
-          },
-          {
-            "type": "style",
-            "hidden": true
-          },
-          {
-            "type": "refactor",
-            "hidden": true
-          },
-          {
-            "type": "perf",
-            "hidden": true
-          },
-          {
-            "type": "test",
-            "hidden": true
-          }
-        ]
-      }
-    }
-  }
+  "npmClient": "pnpm"
 }
