@@ -1,6 +1,5 @@
 import path from "node:path";
 
-import { PKG_NAME } from "../constant/pkg";
 import { getDependencies } from "./getDependencies";
 import { packagesPath } from "./path";
 
@@ -10,7 +9,7 @@ import { packagesPath } from "./path";
  * @param option.full 是否打包所有依赖
  */
 export function generateExternal(option: { full: boolean } = { full: false }) {
-  const { dependencies, peerDependencies } = getDependencies(path.join(packagesPath, PKG_NAME, "package.json"));
+  const { dependencies, peerDependencies } = getDependencies(path.join(packagesPath, "core", "package.json"));
   return (id: string) => {
     const packageNames = [...peerDependencies];
     if (!option.full) {

@@ -7,7 +7,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import { type InputOptions, rollup } from "rollup";
 import esbuild from "rollup-plugin-esbuild";
 
-import { PKG_NAME } from "../constant/pkg";
+import { PKG_NAME } from "../constant";
 import { generateExternal } from "../pack-utils/generateExternal";
 import { outputPath, packagesPath } from "../pack-utils/path";
 
@@ -15,9 +15,9 @@ import { outputPath, packagesPath } from "../pack-utils/path";
  * @param mode "prod" | "dev"
  */
 export default async function packBundle() {
-  const plugins: InputOptions["plugins"] = [nodeResolve(), vue(), vueJsx(), esbuild(), commonjs()];
+  const plugins: InputOptions["plugins"] = [nodeResolve(), vue(), vueJsx(), esbuild({ minify: true }), commonjs()];
   const inputOption: InputOptions = {
-    input: path.join(packagesPath, PKG_NAME, "index.ts"),
+    input: path.join(packagesPath, "core", "index.ts"),
     external: generateExternal({ full: true }),
     plugins: plugins,
     treeshake: true,

@@ -1,9 +1,9 @@
-import fs, { copyFileSync } from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
 
 import { glob, globSync } from "fast-glob";
 
-import { COMPONENT_PREFIX, PKG_NAME, WORKSPACE_NAME } from "../constant/pkg";
+import { COMPONENT_PREFIX, PKG_NAME, WORKSPACE_NAME } from "../constant";
 import { outputPath, outputRootPath, packagesPath, rootPath } from "../pack-utils/path";
 import run from "../pack-utils/run";
 
@@ -43,8 +43,8 @@ export default async function generateDeclare() {
 
   files.forEach((file) => {
     let destPath = file.split("packages")[1];
-    if (new RegExp(`^[\\/]${PKG_NAME}`).test(destPath)) {
-      destPath = destPath.replace(new RegExp(`^[\\/]${PKG_NAME}`), "");
+    if (new RegExp(`^[\\/]core`).test(destPath)) {
+      destPath = destPath.replace(new RegExp(`^[\\/]core`), "");
     }
     const content = fs.readFileSync(file, "utf-8");
     fs.writeFileSync(path.join(outputPath, destPath), content.replaceAll(WORKSPACE_NAME, PKG_NAME));

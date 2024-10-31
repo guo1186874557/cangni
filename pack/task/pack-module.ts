@@ -1,4 +1,3 @@
-import { copyFileSync } from "node:fs";
 import path from "node:path";
 
 import commonjs from "@rollup/plugin-commonjs";
@@ -9,7 +8,7 @@ import fg from "fast-glob";
 import { type InputOptions, rollup } from "rollup";
 import esbuild from "rollup-plugin-esbuild";
 
-import { PKG_NAME, WORKSPACE_NAME } from "../constant/pkg";
+import { PKG_NAME, WORKSPACE_NAME } from "../constant";
 import { generateExternal } from "../pack-utils/generateExternal";
 import { outputPath, packagesPath } from "../pack-utils/path";
 
@@ -49,7 +48,7 @@ export default async function packModule() {
   await bundle.write({
     dir: outputPath,
     preserveModules: true,
-    preserveModulesRoot: path.join(packagesPath, PKG_NAME),
+    preserveModulesRoot: path.join(packagesPath, "core"),
     format: "esm",
     exports: "named",
     sourcemap: true,
