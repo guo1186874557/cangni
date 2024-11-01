@@ -29,14 +29,12 @@ jobs:
       - name: "登录npm"
         run: |
           cd dist/cangni
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
           ls -al
-          cat ./.npmrc
+          cat .npmrc
           npm whoami
 
       - name: "发布包"
         run: |
           cd dist/cangni/
           npm publish
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
