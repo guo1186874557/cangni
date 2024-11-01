@@ -2,6 +2,8 @@ name: "发布包"
 on:
   push:
     branches: [main]
+    paths:
+      - "packages/**"
 
 jobs:
   build:
