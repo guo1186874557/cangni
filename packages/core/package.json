@@ -12,6 +12,14 @@
     "cangni",
     "component"
   ],
+  "homepage": "https://guo1186874557.github.io/cangni/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guo1186874557/cangni.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "author": "guoguo",
   "license": "ISC",
   "dependencies": {

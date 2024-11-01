@@ -1,0 +1,42 @@
+name: "发布包"
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "拉去仓库代码"
+        uses: actions/checkout@v4
+
+      - name: "安装pnpm"
+        uses: pnpm/action-setup@v2
+        with:
+          version: "latest"
+
+      - name: "安装node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: "安装依赖"
+        run: pnpm install
+
+      - name: "打包"
+        run: pnpm build
+
+      - name: "登录npm"
+        run: |
+          cd dist/cangni
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
+          ls -al
+          cat ./.npmrc
+          npm whoami
+
+      - name: "发布包"
+        run: |
+          cd dist/cangni/
+          npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
