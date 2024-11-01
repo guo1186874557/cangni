@@ -1,12 +1,18 @@
 {
   "name": "cangni",
   "version": "0.0.1",
-  "description": "",
+  "description": "基于 element-plus 二次开发的一些常用组件",
   "main": "index.js",
   "type": "module",
   "types": "index.d.ts",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "vue",
+    "element-plus",
+    "vue3",
+    "cangni",
+    "component"
+  ],
+  "author": "guoguo",
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.11.13",
