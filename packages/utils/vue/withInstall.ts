@@ -1,9 +1,10 @@
 import { type App } from "vue";
 
-export function withInstall<T extends { name: string }>(component: T): T & { install: (app: App) => void } {
-  const comp = component as T & { install: (app: App) => void };
-  comp.install = (app: App) => {
-    app.component(component.name, component);
+export type SFCWithInstall<T> = T & { install: (app: App) => void };
+export function withInstall<T>(comp: T) {
+  (comp as SFCWithInstall<T>).install = (app: App) => {
+    const name = (comp as any).name;
+    app.component(name, comp as SFCWithInstall<T>);
   };
-  return comp;
+  return comp as SFCWithInstall<T>;
 }
