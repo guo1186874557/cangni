@@ -1,6 +1,6 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
-  "include": ["**/vite.config.*", "pack/**/*", "@types/undertaker", "scripts/**/*"],
+  "include": ["**/vite.config.*", "pack/**/*", "@types/undertaker", "scripts/**/*", "types/conventionalcommits.d.ts"],
   "compilerOptions": {
     "composite": true,
     "noEmit": true,
