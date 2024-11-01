@@ -8,7 +8,7 @@ import "@vitepress-code-preview/container/dist/style.css";
 
 import 'element-plus/dist/index.css'
 import "element-plus/theme-chalk/dark/css-vars.css";
-import 'cangni/dist/index.css'
+import '@cangni/theme-chalk/src/index.scss'
 
 import "./style.css";
 import Logo from "./Logo.vue";
