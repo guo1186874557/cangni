@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CnButton, CnButtonDialog } from "cangni";
+
 function handleOpen() {
   console.log("open");
 }

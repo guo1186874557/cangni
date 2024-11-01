@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CnButton } from "cangni";
+
 async function apiMock() {
   return new Promise((resolve) => {
     setTimeout(() => {

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CnButton } from "cangni";
 import { ElForm, ElFormItem, ElInput } from "element-plus";
 import { ref } from "vue";
 
@@ -30,7 +31,9 @@ async function onLogin() {
       <ElInput v-model="formData.password"></ElInput>
     </ElFormItem>
     <ElFormItem label=" ">
-      <CnButton @click="onLogin" show-message :form-ref="formRef" success-message="登录成功">登录</CnButton>
+      <CnButton @click="onLogin" type="primary" show-message :form-ref="formRef" success-message="登录成功">
+        登录
+      </CnButton>
     </ElFormItem>
   </ElForm>
 </template>

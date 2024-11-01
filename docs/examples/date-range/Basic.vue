@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CnDateRange } from "@cangni/components";
+import { CnDateRange } from "cangni";
 import { ref } from "vue";
 
 const dateRange = ref({

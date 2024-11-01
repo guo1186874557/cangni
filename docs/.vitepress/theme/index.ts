@@ -5,10 +5,11 @@ import escookTheme from "@escook/vitepress-theme";
 import "@escook/vitepress-theme/style.css";
 import DemoPreview, { useComponents } from "@vitepress-code-preview/container";
 import "@vitepress-code-preview/container/dist/style.css";
-import "element-plus/dist/index.css";
+
+import 'element-plus/dist/index.css'
 import "element-plus/theme-chalk/dark/css-vars.css";
-import "@cangni/theme-chalk/src/index.scss";
-import * as comps from "@cangni/components";
+import 'cangni/dist/index.css'
+
 import "./style.css";
 import Logo from "./Logo.vue";
 export default {
@@ -23,8 +24,5 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     useComponents(app, DemoPreview);
-    for (const comp of Object.values(comps)) {
-      app.use(comp);
-    }
   },
 } satisfies Theme;

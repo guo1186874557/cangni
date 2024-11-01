@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CnSelect } from "cangni";
 import { ElDivider } from "element-plus";
 import { ref } from "vue";
 
