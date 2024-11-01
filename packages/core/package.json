@@ -1,6 +1,6 @@
 {
   "name": "cangni",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "基于 element-plus 二次开发的一些常用组件",
   "main": "index.js",
   "type": "module",
